@@ -18,7 +18,7 @@ public class UpdateModuloHandler : IRequestHandler<UpdateModuloCommand, int>
     {
         var modulo = await _repository.GetByIdAsync(request.moduloId);
         if (modulo == null)
-            throw new KeyNotFoundException("Usuário não encontrado");
+            throw new KeyNotFoundException("Módulo não atualizado");
 
         //usuario.Atualizar(request.Nome, request.Email);
         await _repository.UpdateAsync(modulo);
