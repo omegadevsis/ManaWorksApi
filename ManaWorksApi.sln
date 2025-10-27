@@ -2,6 +2,16 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManaWorksApi", "ManaWorksApi\ManaWorksApi.csproj", "{B82EAD9C-1F39-4B73-9207-0AD46395343F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManaWorksUser", "ManaWorksUser\ManaWorksUser.csproj", "{E061F990-1E10-4653-B49D-D495A887D6A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManaWorksProfile", "ManaWorksProfile\ManaWorksProfile.csproj", "{3940517E-273C-47F4-B7EE-932F4FEE698F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManaWorksPermission", "ManaWorksPermission\ManaWorksPermission.csproj", "{959C433A-7639-40B8-B99C-BCAFA758E8E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManaWorksModule", "ManaWorksModule\ManaWorksModule.csproj", "{87240E12-C6C6-47AA-8B9C-B69DB5A759F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManaWorksGateway", "ManaWorksGateway\ManaWorksGateway.csproj", "{74CD9BFE-0C38-4836-A913-14F5037AF1CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +22,25 @@ Global
 		{B82EAD9C-1F39-4B73-9207-0AD46395343F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B82EAD9C-1F39-4B73-9207-0AD46395343F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B82EAD9C-1F39-4B73-9207-0AD46395343F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E061F990-1E10-4653-B49D-D495A887D6A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E061F990-1E10-4653-B49D-D495A887D6A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E061F990-1E10-4653-B49D-D495A887D6A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E061F990-1E10-4653-B49D-D495A887D6A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3940517E-273C-47F4-B7EE-932F4FEE698F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3940517E-273C-47F4-B7EE-932F4FEE698F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3940517E-273C-47F4-B7EE-932F4FEE698F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3940517E-273C-47F4-B7EE-932F4FEE698F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{959C433A-7639-40B8-B99C-BCAFA758E8E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{959C433A-7639-40B8-B99C-BCAFA758E8E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{959C433A-7639-40B8-B99C-BCAFA758E8E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{959C433A-7639-40B8-B99C-BCAFA758E8E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87240E12-C6C6-47AA-8B9C-B69DB5A759F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87240E12-C6C6-47AA-8B9C-B69DB5A759F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87240E12-C6C6-47AA-8B9C-B69DB5A759F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87240E12-C6C6-47AA-8B9C-B69DB5A759F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74CD9BFE-0C38-4836-A913-14F5037AF1CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74CD9BFE-0C38-4836-A913-14F5037AF1CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74CD9BFE-0C38-4836-A913-14F5037AF1CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74CD9BFE-0C38-4836-A913-14F5037AF1CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

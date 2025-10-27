@@ -1,0 +1,6 @@
+@ManaWorksModule_HostAddress = http://localhost:5249
+
+GET {{ManaWorksModule_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

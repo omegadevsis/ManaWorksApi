@@ -1,0 +1,6 @@
+@ManaWorksProfile_HostAddress = http://localhost:5182
+
+GET {{ManaWorksProfile_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
