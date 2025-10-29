@@ -8,6 +8,7 @@ using ManaWorksUser.Domain.Entities;
 using ManaWorksUser.Domain.Services;
 using ManaWorksUser.Infrastructure.Persistence;
 using ManaWorksUser.Infrastructure.Repositories;
+using ManaWorksUser.Infrastructure.Messaging;
 using MediatorLib;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,28 +20,9 @@ builder.Services.AddDbContext<AppDbContext>(opt => opt.UseMySql(connection, Serv
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ICriptographyService, CriptographyService>();
+builder.Services.AddSingleton<IKafkaProducerService, KafkaProducerService>();
 
 builder.Services.AddMediator(typeof(GetAllUsersQuery).Assembly);
-//builder.Services.AddSingleton<IMediator, Mediator>();
-//builder.Services.AddTransient<IRequestHandler<GetAllUsersQuery, List<User>>, GetAllUsersHandler>();
-//builder.Services.AddAutoMapper(cfg => {}, typeof(UserProfile));
-//builder.Services.AddAutoMapper(cfg => cfg.CreateMap<User, UserDto>().ReverseMap());
-//builder.Services.AddAutoMapper(typeof(UserProfile));
-
-// var mediator = new MediatorBuilder().RegisterHandlers(typeof(GetAllUsersQuery).Assembly);
-// builder.Services.RegisterMediator(mediator);
-
-
-// builder.Services.AddMediatR(cfg => 
-//     cfg.RegisterServicesFromAssemblies(
-//         Assembly.GetExecutingAssembly(),
-//         typeof(GetAllUsersQuery).Assembly,
-//         typeof(GetUserByIdQuery).Assembly,
-//         typeof(CreateUserCommand).Assembly,
-//         typeof(UpdateUserCommand).Assembly,
-//         typeof(DeleteUserCommand).Assembly,
-//         typeof(User).Assembly)
-//     );
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

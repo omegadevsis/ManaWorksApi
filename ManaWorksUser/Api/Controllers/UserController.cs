@@ -46,12 +46,13 @@ public class UserController : ControllerBase
         {
             if (!ModelState.IsValid)
             {
-                var result = await _mediator.Send(command);
-                return Ok(result);
+                return BadRequest();
             }
             else
             {
-                return BadRequest();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+                
             }
         }
         catch (Exception e)
