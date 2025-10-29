@@ -1,19 +1,21 @@
-using ManaWorksApi.Application.Commands;
+using ManaWorksAuth.Application.Commands;
 using ManaWorksAuth.Application.Dtos;
 using ManaWorksAuth.Application.Interfaces;
 using MediatorLib.Requests;
 
-namespace ManaWorksApi.Application.Handlers;
+namespace ManaWorksAuth.Application.Handlers;
 
 public class AuthHandler : IRequestHandler<AuthCommand, UserAuthResult>
 {
     private readonly IAuthRepository _repository;
     private readonly IJwtService _jwtService;
+    private readonly IEncryptionService _criptographyService;
 
-    public AuthHandler(IAuthRepository repository, IJwtService jwtService)
+    public AuthHandler(IAuthRepository repository, IJwtService jwtService,  IEncryptionService criptographyService)
     {
         _repository = repository;
         _jwtService = jwtService;
+        _criptographyService = criptographyService;
     }
 
     public async Task<UserAuthResult> Handle(AuthCommand request, CancellationToken cancellationToken)

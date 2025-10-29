@@ -20,7 +20,7 @@ builder.Services.AddDbContext<AppDbContext>(opt => opt.UseMySql(connection, Serv
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ICriptographyService, CriptographyService>();
-builder.Services.AddSingleton<IKafkaProducerService, KafkaProducerService>();
+builder.Services.AddSingleton<UserCreatedPublisher>();
 
 builder.Services.AddMediator(typeof(GetAllUsersQuery).Assembly);
 

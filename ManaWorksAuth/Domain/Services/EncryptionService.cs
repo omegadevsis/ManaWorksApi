@@ -2,7 +2,7 @@ using System.Security.Cryptography;
 using System.Text;
 using ManaWorksAuth.Application.Interfaces;
 
-namespace ManaWorksApi.Domain.Services;
+namespace ManaWorksAuth.Domain.Services;
 
  public class EncryptionService: IEncryptionService
     {

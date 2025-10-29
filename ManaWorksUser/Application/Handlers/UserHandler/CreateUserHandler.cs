@@ -1,6 +1,7 @@
 using ManaWorksUser.Application.Commands.Users;
 using ManaWorksUser.Application.Interfaces;
 using ManaWorksUser.Domain.Entities;
+using ManaWorksUser.Infrastructure.Messaging;
 using MediatorLib.Requests;
 using System.Text.Json;
 
@@ -10,13 +11,13 @@ public class CreateUserHandler : IRequestHandler<CreateUserCommand, int>
 {
     private readonly IUserRepository _repository;
     private readonly ICriptographyService _criptographyService;
-    private readonly IKafkaProducerService _kafkaProducer;
+    private readonly UserCreatedPublisher _publisher;
 
-    public CreateUserHandler(IUserRepository repository, ICriptographyService criptographyService, IKafkaProducerService kafkaProducer)
+    public CreateUserHandler(IUserRepository repository, ICriptographyService criptographyService, UserCreatedPublisher publisher)
     {
         _repository = repository;
         _criptographyService = criptographyService;
-        _kafkaProducer = kafkaProducer;
+        _publisher = publisher;
     }
 
     public async Task<int> Handle(CreateUserCommand request, CancellationToken cancellationToken)
@@ -24,8 +25,7 @@ public class CreateUserHandler : IRequestHandler<CreateUserCommand, int>
         var user = new User(0, request.name, request.login, _criptographyService.EncryptString(request.password), request.profileId, request.status);
         await _repository.AddAsync(user);
 
-        var message = JsonSerializer.Serialize(user);
-        await _kafkaProducer.ProduceAsync("user-created", message);
+        _publisher.Publish(user);
 
         return user.UserId;
     }

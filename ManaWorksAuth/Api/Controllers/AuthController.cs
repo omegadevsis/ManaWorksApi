@@ -1,4 +1,4 @@
-using ManaWorksApi.Application.Commands;
+using ManaWorksAuth.Application.Commands;
 using ManaWorksAuth.Domain.Entities;
 using MediatorLib;
 using Microsoft.AspNetCore.Mvc;
@@ -17,19 +17,15 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost]
-    [Route("login")]
     public async Task<IActionResult> Post([FromBody] AuthCommand auth)
     {
         try
         {
-            var user = new User(0, "", "", "", 0, "");
             var result = await _mediator.Send(auth);
             return Ok(result);
         }
         catch (Exception e)
         {
-            //Console.WriteLine(e);
-            //throw;
             return Unauthorized();
         }
     }

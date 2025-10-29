@@ -1,18 +1,12 @@
-using System.Text;
-using ManaWorksApi.Application.Commands;
-using ManaWorksApi.Application.Handlers;
-using ManaWorksApi.Domain.Services;
-using ManaWorksAuth.Application.Dtos;
+using ManaWorksAuth.Api.Configuration;
+using ManaWorksAuth.Application.Commands;
 using ManaWorksAuth.Application.Interfaces;
-using ManaWorksAuth.Domain.Entities;
-using ManaWorksAuth.Infrastructure.Messaging;
+using ManaWorksAuth.Domain.Services;
 using ManaWorksAuth.Infrastructure.Persistence;
 using ManaWorksAuth.Infrastructure.Repositories;
 using ManaWorksAuth.Infrastructure.Security;
 using MediatorLib;
-using MediatorLib.Requests;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,17 +24,22 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<IEncryptionService, EncryptionService>();
 builder.Services.AddScoped<IJwtService, JwtService>();
+builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
+
+var secretKey = "ZNIAatlQQbcd9vl97FHlZ1GPmq0K1h01ysRQnOF2Oko=";
+if (!string.IsNullOrEmpty(secretKey))
+{
+    builder.Services.PostConfigure<JwtSettings>(options =>
+    {
+        options.SecretKey = secretKey;
+    });
+}
 
 // Register Mediator and Handlers
-builder.Services.AddSingleton<Mediator>();
-builder.Services.AddScoped<IRequestHandler<AuthCommand, UserAuthResult>, AuthHandler>();
+builder.Services.AddMediator(typeof(AuthCommand).Assembly);
 
-// Register Kafka Consumer
+// Register RabbitMQ Consumer
 builder.Services.AddHostedService<UserCreatedConsumer>();
-
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
