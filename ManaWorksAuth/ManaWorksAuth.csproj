@@ -29,7 +29,7 @@
 
     <ItemGroup>
       <Reference Include="MediatorLib">
-        <HintPath>..\\..\\..\\..\\RiderProjects\\MediatorLib\\MediatorLib\\bin\\Release\\net8.0\\MediatorLib.dll</HintPath>
+        <HintPath>..\..\MediatorLib\MediatorLib\bin\Release\net8.0\MediatorLib.dll</HintPath>
       </Reference>
     </ItemGroup>
 

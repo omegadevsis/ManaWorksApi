@@ -17,7 +17,7 @@ public class UpdatePermissaoHandler : IRequestHandler<UpdatePermissaoCommand, Un
     {
         var permissao = await _repository.GetByIdAsync(request.permissaoId);
         if (permissao == null)
-            throw new KeyNotFoundException("Usuário não encontrado");
+            throw new KeyNotFoundException("Permissão não encontrado");
 
         //usuario.Atualizar(request.Nome, request.Email);
         await _repository.UpdateAsync(permissao);

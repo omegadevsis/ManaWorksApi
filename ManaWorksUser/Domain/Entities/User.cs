@@ -11,31 +11,31 @@ public class User
     public int ProfileId { get; private set; }
     
     [Required(ErrorMessage = "Username is required")]
-    public string UserName { get; private set; }
+    public string Name { get; private set; }
     
     [Required(ErrorMessage = "Login is required")]
-    public string UserLogin { get; private set; }
+    public string Login { get; private set; }
     
     [Required(ErrorMessage = "Password is required")]
     [MaxLength(10, ErrorMessage = "Password must be 10 characters or less")]
-    public string UserPassword { get; private set; }
+    public string Password { get; private set; }
     [Required]
-    public string UserStatus { get; set; }
+    public string Status { get; set; }
 
-    public User(int userId, string userName, string userLogin, string userPassword, int profileId, string userStatus)
+    public User(int userId, string name, string login, string password, int profileId, string status)
     {
         UserId = userId;
-        UserName = userName;
-        UserLogin = userLogin;
-        UserPassword = userPassword;
+        Name = name;
+        Login = login;
+        Password = password;
         ProfileId = profileId;
-        UserStatus = userStatus;
+        Status = status;
     }
 
     public void UpdateUser(string userName, string userLogin, int profileId)
     {
-        UserName = userName;
-        UserLogin = userLogin;
+        Name = userName;
+        Login = userLogin;
         ProfileId = profileId;
     }
 }

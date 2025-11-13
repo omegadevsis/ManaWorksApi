@@ -1,6 +1,7 @@
 using ManaWorksUser.Application.Commands.Users;
 using ManaWorksUser.Application.Interfaces;
 using ManaWorksUser.Domain.Entities;
+using ManaWorksUser.Infrastructure.Messaging;
 using MediatorLib.Requests;
 
 namespace ManaWorksUser.Application.Handlers.Users;
@@ -8,9 +9,11 @@ namespace ManaWorksUser.Application.Handlers.Users;
 public class UpdateUserHandler : IRequestHandler<UpdateUserCommand, User>
 {
     private readonly IUserRepository _repository;
-    public UpdateUserHandler(IUserRepository repository)
+    private readonly UserCreatedPublisher _publisher;
+    public UpdateUserHandler(IUserRepository repository, UserCreatedPublisher publisher)
     {
         _repository = repository;
+        _publisher = publisher;
     }
 
     public async Task<User> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
@@ -21,6 +24,7 @@ public class UpdateUserHandler : IRequestHandler<UpdateUserCommand, User>
 
         user.UpdateUser(request.name, request.login, request.profileId);
         await _repository.UpdateAsync(user);
+        _publisher.Publish(user);
         return user;
     }
 }

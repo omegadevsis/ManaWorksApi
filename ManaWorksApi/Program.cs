@@ -8,6 +8,8 @@ using ManaWorksApi.Infrastructure.Repositories;
 using ManaWorksApi.Infrastructure.Security;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,22 +37,22 @@ if (!string.IsNullOrEmpty(secretKey))
     });
 }
 
-// builder.Services.AddAuthentication("Bearer")
-//     .AddJwtBearer("Bearer", options =>
-//     {
-//         options.TokenValidationParameters = new TokenValidationParameters
-//         {
-//             ValidateIssuer = true,
-//             ValidateAudience = true,
-//             ValidateIssuerSigningKey = true,
-//             ValidIssuer = builder.Configuration["Jwt:Issuer"],
-//             ValidAudience = builder.Configuration["Jwt:Audience"],
-//             IssuerSigningKey = new SymmetricSecurityKey(
-//                 Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"]))
-//         };
-//     });
-//
-// builder.Services.AddAuthorization();
+builder.Services.AddAuthentication("Bearer")
+    .AddJwtBearer("Bearer", options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"]))
+        };
+    });
+
+builder.Services.AddAuthorization();
 
 
 

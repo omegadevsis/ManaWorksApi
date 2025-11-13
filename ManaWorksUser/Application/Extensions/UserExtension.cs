@@ -13,9 +13,9 @@ public static class UserExtension
         {
             UserId = user.UserId,
             ProfileId = user.ProfileId,
-            UserName = user.UserName,
-            UserLogin = user.UserLogin,
-            UserStatus = user.UserStatus,
+            Name = user.Name,
+            Login = user.Login,
+            Status = user.Status,
             // Note que UserPassword geralmente não vai para DTO por segurança
         };
     }
@@ -27,11 +27,11 @@ public static class UserExtension
 
         return new User(
             dto.UserId,
-            dto.UserName,
-            dto.UserLogin,
+            dto.Name,
+            dto.Login,
             "",
             0,
-            dto.UserStatus
+            dto.Status
         );
     }
     

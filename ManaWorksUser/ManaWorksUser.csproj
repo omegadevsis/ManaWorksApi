@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.21" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.20"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.21" />
         <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.3" />
@@ -24,7 +25,7 @@
 
     <ItemGroup>
       <Reference Include="MediatorLib">
-        <HintPath>..\..\..\..\RiderProjects\MediatorLib\MediatorLib\bin\Release\net8.0\MediatorLib.dll</HintPath>
+        <HintPath>..\..\MediatorLib\MediatorLib\bin\Release\net8.0\MediatorLib.dll</HintPath>
       </Reference>
     </ItemGroup>
 

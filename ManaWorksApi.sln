@@ -14,6 +14,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManaWorksGateway", "ManaWor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManaWorksAuth", "ManaWorksAuth\ManaWorksAuth.csproj", "{D16D7D60-C0A9-4BB8-A6DE-1E9A2ED28917}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManaWorksVacancy", "ManaWorksVacancy\ManaWorksVacancy.csproj", "{97EB4ADA-9DA7-4535-83AA-17FD8500F075}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManaWorksCandidate", "ManaWorksCandidate\ManaWorksCandidate.csproj", "{B6B72874-5622-4E6C-B68D-4D1274125342}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +52,13 @@ Global
 		{D16D7D60-C0A9-4BB8-A6DE-1E9A2ED28917}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D16D7D60-C0A9-4BB8-A6DE-1E9A2ED28917}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D16D7D60-C0A9-4BB8-A6DE-1E9A2ED28917}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97EB4ADA-9DA7-4535-83AA-17FD8500F075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97EB4ADA-9DA7-4535-83AA-17FD8500F075}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97EB4ADA-9DA7-4535-83AA-17FD8500F075}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97EB4ADA-9DA7-4535-83AA-17FD8500F075}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6B72874-5622-4E6C-B68D-4D1274125342}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6B72874-5622-4E6C-B68D-4D1274125342}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6B72874-5622-4E6C-B68D-4D1274125342}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6B72874-5622-4E6C-B68D-4D1274125342}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
