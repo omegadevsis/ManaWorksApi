@@ -26,15 +26,6 @@ builder.Services.AddScoped<IEncryptionService, EncryptionService>();
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
 
-var secretKey = "ZNIAatlQQbcd9vl97FHlZ1GPmq0K1h01ysRQnOF2Oko=";
-if (!string.IsNullOrEmpty(secretKey))
-{
-    builder.Services.PostConfigure<JwtSettings>(options =>
-    {
-        options.SecretKey = secretKey;
-    });
-}
-
 // Register Mediator and Handlers
 builder.Services.AddMediator(typeof(AuthCommand).Assembly);
 

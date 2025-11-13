@@ -10,7 +10,27 @@
         }
       ],
       "UpstreamPathTemplate": "/v1/User/{**catch-all}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "ManaKey",
+        "AllowedScoped": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/v1/Auth/{**catch-all}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "auth",
+          "Port": 5214
+        }
+      ],
+      "UpstreamPathTemplate": "/v1/Auth/{**catch-all}",
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "ManaKey",
+        "AllowedScoped": []
+      }
     }
   ],
   "GlobalConfiguration": {

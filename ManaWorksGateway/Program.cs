@@ -16,22 +16,25 @@ builder.Services.AddSwaggerGen();
 
 //builder.Services.AddReverseProxy().LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
 
-var key = Encoding.ASCII.GetBytes(Settings.Secret);
+//var key = Encoding.ASCII.GetBytes(Settings.Secret);
+var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>();
 builder.Services.AddAuthentication(x =>
     {
         x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
         x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
     })
-    .AddJwtBearer(x =>
+    .AddJwtBearer("ManaKey", x =>
     {
         x.RequireHttpsMetadata = false;
         x.SaveToken = true;
         x.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(key),
-            ValidateIssuer = false,
-            ValidateAudience = false
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.SecretKey)),
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidIssuer = jwtSettings.Issuer,
+            ValidAudience = jwtSettings.Audience,
         };
         x.Events = new JwtBearerEvents
         {
@@ -58,6 +61,6 @@ if (app.Environment.IsDevelopment())
 
 await app.UseOcelot();
 app.UseHttpsRedirection();
-app.MapReverseProxy();
+//app.MapReverseProxy();
 app.Urls.Add("http://+:5110");
 app.Run();
