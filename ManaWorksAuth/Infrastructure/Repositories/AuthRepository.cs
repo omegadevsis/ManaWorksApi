@@ -20,12 +20,12 @@ public class AuthRepository : IAuthRepository
     
     public async Task<UserAuthResult?> GetUser(string login, string senha)
     {
-        var usuario = await (from u in _context.users
-            where u.UserLogin == login && u.UserPassword == _encryptionService.EncryptString(senha)
+        var usuario = await (from u in _context.auths
+            where u.Login == login && u.Passwords == _encryptionService.EncryptString(senha)
             select new UserAuthResult
             {
-                Login = u.UserLogin,
-                Nome = u.UserName,
+                Login = u.Login,
+                Nome = u.Name,
                 PerfilId = u.ProfileId,
                 UsuarioId = u.UserId
             }).AsNoTracking().FirstOrDefaultAsync();
@@ -33,9 +33,9 @@ public class AuthRepository : IAuthRepository
         return usuario;
     }
     
-    public async Task AddUserAsync(User user)
+    public async Task AddUserAsync(Auth user)
     {
-        await _context.users.AddAsync(user);
+        await _context.auths.AddAsync(user);
         await _context.SaveChangesAsync();
     }
 }

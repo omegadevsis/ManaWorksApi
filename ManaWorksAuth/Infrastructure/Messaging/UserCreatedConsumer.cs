@@ -31,7 +31,7 @@ public class UserCreatedConsumer : BackgroundService
         {
             var body = ea.Body.ToArray();
             var message = Encoding.UTF8.GetString(body);
-            var user = JsonSerializer.Deserialize<User>(message);
+            var user = JsonSerializer.Deserialize<Auth>(message);
 
             using var scope = _scopeFactory.CreateScope();
             var authRepository = scope.ServiceProvider.GetRequiredService<IAuthRepository>();
