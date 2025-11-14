@@ -9,6 +9,7 @@
 
     <ItemGroup>
         <PackageReference Include="Confluent.Kafka" Version="2.3.0" />
+        <PackageReference Include="MediatorLib" Version="1.0.0" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.2" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.2">
           <PrivateAssets>all</PrivateAssets>
@@ -25,12 +26,6 @@
       <Content Include="..\\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Reference Include="MediatorLib">
-        <HintPath>..\..\MediatorLib\MediatorLib\bin\Release\net8.0\MediatorLib.dll</HintPath>
-      </Reference>
     </ItemGroup>
 
 </Project>

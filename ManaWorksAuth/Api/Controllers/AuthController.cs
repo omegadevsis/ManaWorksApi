@@ -15,6 +15,19 @@ public class AuthController : ControllerBase
     {
         _mediator = mediator;
     }
+    
+    [HttpGet]
+    public async Task<IActionResult> Get(string status)
+    {
+        try
+        {
+            return Ok("Api ok");
+        }
+        catch (Exception e)
+        {
+            return Unauthorized();
+        }
+    }
 
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] AuthCommand auth)
