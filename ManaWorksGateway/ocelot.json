@@ -5,12 +5,13 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "user",
+          "Host": "localhost",
           "Port": 5257
         }
       ],
       "UpstreamPathTemplate": "/v1/User/{**catch-all}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "SwaggerKey": "users",
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "ManaKey",
         "AllowedScoped": []
@@ -21,18 +22,41 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "auth",
+          "Host": "localhost",
           "Port": 5214
         }
       ],
       "UpstreamPathTemplate": "/v1/Auth/{**catch-all}",
       "UpstreamHttpMethod": [ "POST" ],
+      "SwaggerKey": "auth",
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "ManaKey",
         "AllowedScoped": []
       }
     }
   ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "users",
+      "Config": [
+        {
+          "Name": "Users API",
+          "Version": "v1",
+          "Url": "http://localhost:5257/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "auth",
+      "Config": [
+        {
+          "Name": "Auth API",
+          "Version": "v1",
+          "Url": "http://localhost:5214/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ],  
   "GlobalConfiguration": {
     "BaseUrl": "http://localhost:5200"
   }

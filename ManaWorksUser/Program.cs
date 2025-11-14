@@ -68,4 +68,5 @@ if (app.Environment.IsDevelopment())
 
 app.UseRouting();
 app.MapControllers();
+app.Urls.Add("http://*:5257");
 app.Run();

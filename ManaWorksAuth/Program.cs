@@ -30,7 +30,7 @@ builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSet
 builder.Services.AddMediator(typeof(AuthCommand).Assembly);
 
 // Register RabbitMQ Consumer
-builder.Services.AddHostedService<UserCreatedConsumer>();
+//builder.Services.AddHostedService<UserCreatedConsumer>();
 
 var app = builder.Build();
 
@@ -43,4 +43,5 @@ if (app.Environment.IsDevelopment())
 
 app.UseRouting();
 app.MapControllers();
+app.Urls.Add("http://*:5214");
 app.Run();

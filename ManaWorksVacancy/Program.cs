@@ -86,4 +86,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.Urls.Add("http://*:5233");
+
 app.Run();

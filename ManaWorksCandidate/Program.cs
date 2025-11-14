@@ -72,5 +72,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
+app.Urls.Add("http://*:5179");
 app.Run();
