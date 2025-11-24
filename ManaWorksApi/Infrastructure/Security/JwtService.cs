@@ -2,10 +2,11 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using ManaWorksApi.Api.Configuration;
-using ManaWorksApi.Application.Domain;
 using ManaWorksApi.Application.Interfaces;
+using ManaWorksApi.Application.Interfaces.Auth;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using ManaWorksApi.Application.Dtos.Auth;
 
 namespace ManaWorksApi.Infrastructure.Security;
 

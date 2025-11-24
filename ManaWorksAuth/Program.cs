@@ -41,9 +41,6 @@ builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSet
 // Register Mediator and Handlers
 builder.Services.AddMediator(typeof(AuthCommand).Assembly);
 
-// Register RabbitMQ Consumer
-//builder.Services.AddHostedService<UserCreatedConsumer>();
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -57,4 +54,5 @@ app.UseRouting();
 app.UseCors("AllowOrigin");
 app.MapControllers();
 app.Urls.Add("http://*:5214");
+app.Urls.Add("http://*:5257");
 app.Run();

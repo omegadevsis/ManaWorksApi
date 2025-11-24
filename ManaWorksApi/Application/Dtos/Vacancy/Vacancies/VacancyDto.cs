@@ -1,0 +1,18 @@
+namespace ManaWorksApi.Application.Dtos.Vacancies;
+
+public class VacancyDto
+{
+    public int VacancyId { get; set; }
+    public int WorkTypeId { get; set; }
+    public string? WorkTypeName { get; set; }
+    public int ContractTypeId { get; set; }
+    public string ContractTypeName { get; set; }
+    public int JourneyTypeId { get; set; }
+    public string JourneyTypeName { get; set; }
+    public int UserId { get; set; }
+    public string Title { get; set; }
+    public string Description { get; set; }
+    public string Requirements { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public string Status { get; set; }
+}
